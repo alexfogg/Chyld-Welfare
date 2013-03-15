@@ -1,5 +1,5 @@
 Chyldwelfare::Application.routes.draw do
-  root :to => "user#splash"
+  root :to => "users#splash"
 
   resources :users, :only => [:index, :new, :create]
 
@@ -8,5 +8,9 @@ Chyldwelfare::Application.routes.draw do
 
   get "/donate" => "users#donatef"
   put "/donate" => "users#create_donnor"
+
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
 
 end
