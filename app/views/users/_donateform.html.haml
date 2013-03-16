@@ -1,0 +1,11 @@
+.row
+  .large-3.columns
+    = form_for @user, :remote => true do |f|
+      = f.label 'Donate'
+      = f.label 'True'
+      = f.radio_button :is_donor, "true"
+      = f.label 'False'
+      = f.radio_button :is_donor, "false"
+      = button_to_function('Cancel', 'cancel_donate_form()',:class => 'button radius tiny alert')
+      = f.submit nil, :id => 'donate_button', :class => 'button radius tiny'
+  .large-9.columns

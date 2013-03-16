@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   #Donate
   def donatef #renders form partial to edit user (aka change is_donnor true)
+    @user = User.new
   end
   def donate #
   end
