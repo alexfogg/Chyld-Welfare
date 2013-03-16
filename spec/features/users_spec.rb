@@ -21,7 +21,7 @@ describe 'Users' do
             page.should have_text('You have successfully created an account!') #testing to make sure you have confirmation showing
             page.should have_button('Login') #Testing to make sure you have login form showing
             page.should_not have_button('Create Account') #testing to make sure you don't have the create form still up
-            expect(User.first.user.name).to eq 'Bob' #testing to make sure it's in database (this should happen before the above but it might cause a race condition)
+            expect(User.all.first.name).to eq 'Bob' #testing to make sure it's in database (this should happen before the above but it might cause a race condition)
       end
 
     end
@@ -29,13 +29,12 @@ describe 'Users' do
 
 
     describe 'GET /main' do
-    it 'displays a donation form', :js => true do
-      visit users_path
-      click_link('Donate')
-      page.should have_button('Submit')
+        it 'displays a donation form', :js => true do
+          visit users_path
+          click_link('Donate')
+          page.should have_button('Submit')
+        end
     end
-
-  end
 
 
 
