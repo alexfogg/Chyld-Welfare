@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     #if auth redirect to second
   end
   def index #second page (THIS SHOULD BE AN HTML REQUEST)
+    render :main
   end
   def new #
   end
@@ -10,15 +11,15 @@ class UsersController < ApplicationController
   end
 
   #APPLY
-  def applyf #renders form partial
+  def applyf #renders form partial to edit user (aka add profile and turn is_app true)
   end
   def apply #edits user for account for application
   end
 
   #Donate
-  def donatef #renders form partial
+  def donatef #renders form partial to edit user (aka change is_donnor true)
   end
-  def donate
+  def donate #
   end
 
 end
