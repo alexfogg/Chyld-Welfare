@@ -10,6 +10,7 @@ class SessionController < ApplicationController
       redirect_to(users_path) #users_path is mian
     else
       session[:user_id] = nil
+      redirect_to(root_path)
     end
   end
 
