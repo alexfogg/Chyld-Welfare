@@ -28,7 +28,7 @@ describe 'Users' do
 
 
 
-    describe 'GET /main' do
+    describe 'GET /users' do
         it 'displays a donation form', :js => true do
           visit users_path
           click_link('Donate')
