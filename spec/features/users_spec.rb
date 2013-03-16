@@ -37,6 +37,18 @@ describe 'Users' do
     end
 
 
+    describe 'GET /apply'
+      it 'brings up the application form' do
+        visit users_path
+        click_link('Apply')
+        page.should have_button('Submit')
+      end
 
-
+      it 'after filling out the form and clicking submit, the user should be an applicant' do
+        visit users_path
+        click_link('Apply')
+        fill_in('user_bio', :with => 'I need money')
+        click_button('Submit')
+        # expect(user.bio).to eq 'I need money')
+      end
 end
