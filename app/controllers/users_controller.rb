@@ -14,11 +14,17 @@ class UsersController < ApplicationController
 
   #APPLY
   def applyf #renders form partial to edit user (aka add profile and turn is_app true)
-    user =  User.create(params[:user])
-    user.is_app = true
-
+    # @user = User.new
+    # @user = User.find(params[:user])
+    @auth.is_app = true
+    # @user.update_attributes(params[:user])
+    # user = User.find(params[:user])
+    # user.is_app = true
+    # user.save
   end
-  def apply #edits user for account for application
+  def create_applicant #edits user for account for application
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
   end
 
   #Donate

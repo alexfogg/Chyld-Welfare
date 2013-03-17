@@ -5,10 +5,10 @@ You are on the MAIN page!
   #donation_form
 
 %section.application
-  =link_to("Apply for Sponsorship", "direct to users#applyf",remote:true)
+  =link_to("Apply for Sponsorship", apply_path, remote:true)
   #application_form
 
 %section.view_selected
   =button_to_function("View Donnors","JS FUNCTION")
-  =button_to_function("View Applicants","JS FUNCTION")
+  =button_to_function("View Applicants","view_applicants_function")
   #main_view
