@@ -5,10 +5,8 @@
       = f.text_field :name, :autofocus => true
       = f.label :email
       = f.text_field :email
-      = f.label :password
-      = f.password_field :password
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation
+      = f.label :bio
+      = f.text_field :bio
       = button_to_function('Cancel', 'cancel_user_form()',:class => 'button radius tiny alert')
       = f.submit 'Create Account', :id => 'create_user_button', :class => 'button radius tiny'
   .large-9.columns
