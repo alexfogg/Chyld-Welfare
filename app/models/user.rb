@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :is_donor, :is_app, :bio, :photo
+  attr_accessible :name, :email, :password, :password_confirmation, :is_donor, :is_app, :bio, :photo, :donateamt, :donatename
   has_secure_password
   # before_save :default_values
 
