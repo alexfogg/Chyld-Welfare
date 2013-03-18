@@ -1,0 +1,7 @@
+-if @auth.present?
+  -User.all.each do |user|
+    -if user.is_app
+      .applicant
+        .photo=user.photo
+        .name=user.name
+        .bio=user.bio

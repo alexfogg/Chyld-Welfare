@@ -3,6 +3,9 @@ Chyldwelfare::Application.routes.draw do
 
   resources :users, :only => [:index, :new, :create]
 
+  get "/donorlist" => 'users#dlist'
+  get "/applist" => 'users#alist'
+
   get "/apply" => "users#applyf"
   put "/apply" => "users#create_applicant"
 

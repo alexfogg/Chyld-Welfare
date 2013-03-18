@@ -1,14 +1,28 @@
 You are on the MAIN page!
 
-%section.donation
-  =link_to("Donate", donate_path, :remote => true)
-  #donation_form
+-if @auth.present? && !@auth.is_donor
+  %section.donation
+    =link_to("Donate", donate_path, :remote => true)
+    #donation_form
+-else
+  .donorthanks
+    You have already donated!
 
-%section.application
-  =link_to("Apply for Sponsorship", apply_path, remote:true)
-  #application_form
+-if @auth.present? && !@auth.is_app
+  %section.application
+    =link_to("Apply for Sponsorship", apply_path, remote:true)
+    #application_form
+-else
+  .appdone
+    Thank You for your application!
+    %br
+    =link_to("Edit Application", apply_path, remote:true)
+    #application_form
+
+
 
 %section.view_selected
-  =button_to_function("View Donors","JS FUNCTION")
-  =button_to_function("View Applicants","view_applicants_function")
+  .vd=link_to("View Donors",donorlist_path, remote:true)
+  .va=link_to("View Applicants",applist_path,remote:true)
   #main_view
+    =render :partial => 'users/applicants'
