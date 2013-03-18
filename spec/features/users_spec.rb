@@ -50,6 +50,6 @@ describe 'Users' do
         fill_in('user_bio', :with => 'I need money')
         fill_in('user_photo', :with => 'http://cdn.memegenerator.net/instances/400x/28912602.jpg')
         click_button('Apply')
-        expect(user.bio).to eq 'I need money'
+        expect(User.first.user.bio).to eq 'I need money'
       end
 end
