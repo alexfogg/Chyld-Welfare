@@ -37,7 +37,7 @@ describe 'Users' do
     end
 
 
-    describe 'GET /apply'
+    describe 'GET /apply' do
       it 'brings up the application form', :js => true do
         visit users_path
         click_link('Apply for Sponsorship')
@@ -52,4 +52,31 @@ describe 'Users' do
         click_button('Apply')
         expect(User.first.user.bio).to eq 'I need money'
       end
+
+      it 'after applying, the page should display the applicant(s)' do
+        visit users_path
+        click_link('Apply for Sponsorship')
+        fill_in('user_bio', :with => 'I need money')
+        fill_in('user_photo', :with => 'http://cdn.memegenerator.net/instances/400x/28912602.jpg')
+        click_button('Apply')
+        page.should have_text('I need money')
+      end
+    end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
