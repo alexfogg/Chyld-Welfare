@@ -40,15 +40,16 @@ describe 'Users' do
     describe 'GET /apply'
       it 'brings up the application form', :js => true do
         visit users_path
-        click_link('Apply')
-        page.should have_button('Submit')
+        click_link('Apply for Sponsorship')
+        page.should have_button('Apply')
       end
 
-      it 'after filling out the form and clicking submit, the user should be an applicant', :js => true do
+      it 'after filling out the form and clicking apply, the user should be an applicant', :js => true do
         visit users_path
-        click_link('Apply')
+        click_link('Apply for Sponsorship')
         fill_in('user_bio', :with => 'I need money')
-        click_button('Submit')
+        fill_in('user_photo', :with => 'http://cdn.memegenerator.net/instances/400x/28912602.jpg')
+        click_button('Apply')
         expect(user.bio).to eq 'I need money'
       end
 end
