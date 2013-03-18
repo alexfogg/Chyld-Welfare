@@ -28,8 +28,8 @@ class UsersController < ApplicationController
     @user.is_donor = true
   end
   def donate #
-    @user = User.find(params[:id])
-    @user.update_attributes(params[:user])
+    # @user = User.find(params[:id])
+    # @user.update_attributes(params[:user])
   end
 
 end
