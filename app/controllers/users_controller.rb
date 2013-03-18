@@ -25,9 +25,10 @@ class UsersController < ApplicationController
   #Donate
   def donatef #renders form partial to edit user (aka change is_donor true)
     @user = @auth
+    @user.is_donor = true
   end
   def donate #
-    @user = @auth
+    @user = User.find(params[:id])
     @user.update_attributes(params[:user])
   end
 
