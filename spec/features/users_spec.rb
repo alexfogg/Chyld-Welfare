@@ -36,6 +36,32 @@ describe 'Users' do
         end
     end
 
+    describe 'GET /donate' do
+      it 'brings up the donation form', :js = true do
+        visit users_path
+        click_link('Donate')
+        page.should have_button('Submit')
+      end
+
+      it 'after filling out the form and clicking donate, the user should be an donor', :js => true do
+        visit users_path
+        click_link('Donate')
+        fill_in('user_donatename', :with => 'Big donation')
+        fill_in('user_donateamt', :with => 500)
+        click_button('Submit')
+        expect(User.first.user.donatename).to eq 'Big Donation'
+      end
+
+      it 'after applying, the page should display the applicant(s)' do
+        visit users_path
+        click_link('Donate')
+        fill_in('user_donatename', :with => 'Big Donation')
+        fill_in('user_donateamt', :with => 500)
+        click_button('Submit')
+        click_button('View Donors')
+        page.should have_text('Big Donation')
+      end
+    end
 
     describe 'GET /apply' do
       it 'brings up the application form', :js => true do
@@ -59,9 +85,10 @@ describe 'Users' do
         fill_in('user_bio', :with => 'I need money')
         fill_in('user_photo', :with => 'http://cdn.memegenerator.net/instances/400x/28912602.jpg')
         click_button('Apply')
+        click_buttin('View Applicants')
         page.should have_text('I need money')
       end
-    end
+
 end
 
 
